@@ -1,0 +1,764 @@
+<html>
+  <head>
+    <title>INDRA-AI Command Grid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen bg-neutral-950 text-neutral-100 antialiased selection:bg-lime-500/30 selection:text-lime-100">
+    <div class="min-h-screen flex flex-col bg-gradient-to-b from-black via-neutral-950 to-neutral-950">
+      <!-- Top Border Glow -->
+      <div class="h-0.5 w-full bg-gradient-to-r from-lime-400/0 via-lime-400/50 to-amber-500/0"></div>
+
+      <!-- App Shell -->
+      <div class="flex-1 flex flex-col lg:flex-row">
+        <!-- Left Rail -->
+        <aside class="w-full lg:w-60 xl:w-72 border-r border-lime-500/10 bg-gradient-to-b from-black/70 via-neutral-950/90 to-black/90 backdrop-blur-sm">
+          <!-- Logo / Unit Tag -->
+          <div class="flex items-center justify-between gap-3 border-b border-lime-500/15 px-4 sm:px-6 py-4">
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <div class="h-9 w-9 rounded-md border border-lime-500/40 bg-gradient-to-br from-lime-500/10 via-black to-emerald-500/20 shadow-[0_0_25px_rgba(132,204,22,0.35)] flex items-center justify-center">
+                  <span class="text-sm font-semibold tracking-[0.22em] text-lime-300">IA</span>
+                </div>
+                <div class="absolute -inset-0.5 rounded-lg border border-lime-400/20 blur-[2px] opacity-40"></div>
+              </div>
+              <div class="leading-tight">
+                <div class="text-xs font-semibold tracking-[0.32em] text-lime-300/80 uppercase">INDRA‑AI</div>
+                <div class="text-sm text-neutral-300 tracking-tight">Battlefield Command Grid</div>
+              </div>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 text-[0.7rem] text-amber-300/80">
+              <span class="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]"></span>
+              <span class="uppercase tracking-[0.28em]">Secure</span>
+            </div>
+          </div>
+
+          <!-- Nav -->
+          <nav class="flex-1 flex flex-col gap-6 px-3 sm:px-4 py-5 text-sm">
+            <!-- Primary Sections -->
+            <div>
+              <div class="mb-2 text-[0.7rem] uppercase tracking-[0.3em] text-neutral-500">Operations</div>
+              <div class="space-y-1">
+                <button class="group w-full flex items-center gap-3 rounded-md border border-lime-400/30 bg-gradient-to-r from-lime-500/10 via-lime-500/5 to-transparent px-3 py-2.5 text-xs font-medium tracking-tight text-lime-100 shadow-[0_0_22px_rgba(34,197,94,0.45)]">
+                  <div class="relative">
+                    <div class="h-6 w-6 rounded-sm border border-lime-400/60 bg-black/40 flex items-center justify-center">
+                      <i data-lucide="crosshair" class="h-3.5 w-3.5 text-lime-300"></i>
+                    </div>
+                    <div class="absolute inset-0 rounded-sm shadow-[0_0_14px_rgba(132,204,22,0.6)] opacity-60"></div>
+                  </div>
+                  <div class="flex-1 flex items-center justify-between gap-2">
+                    <span>Live Tactical Grid</span>
+                    <span class="text-[0.65rem] uppercase tracking-[0.3em] text-lime-300/80">Active</span>
+                  </div>
+                </button>
+
+                <button class="group w-full flex items-center gap-3 rounded-md border border-neutral-700/70 bg-gradient-to-r from-neutral-900/80 to-black/80 px-3 py-2.5 text-xs text-neutral-300 hover:border-lime-400/40 hover:bg-lime-500/5 hover:text-lime-100 transition">
+                  <div class="h-6 w-6 rounded-sm border border-neutral-700 bg-black/40 flex items-center justify-center">
+                    <i data-lucide="radar" class="h-3.5 w-3.5 text-lime-300/80"></i>
+                  </div>
+                  <div class="flex-1 flex items-center justify-between gap-2">
+                    <span>Airspace Radar</span>
+                    <span class="text-[0.65rem] uppercase tracking-[0.3em] text-neutral-500 group-hover:text-lime-300/80">Grid‑A2</span>
+                  </div>
+                </button>
+
+                <button class="group w-full flex items-center gap-3 rounded-md border border-neutral-700/70 bg-gradient-to-r from-neutral-900/80 to-black/80 px-3 py-2.5 text-xs text-neutral-300 hover:border-lime-400/40 hover:bg-lime-500/5 hover:text-lime-100 transition">
+                  <div class="h-6 w-6 rounded-sm border border-neutral-700 bg-black/40 flex items-center justify-center">
+                    <i data-lucide="map" class="h-3.5 w-3.5 text-lime-300/80"></i>
+                  </div>
+                  <div class="flex-1 flex items-center justify-between gap-2">
+                    <span>Ground Theatre Map</span>
+                    <span class="text-[0.65rem] uppercase tracking-[0.3em] text-neutral-500 group-hover:text-lime-300/80">Zone‑07</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Intelligence -->
+            <div>
+              <div class="mb-2 text-[0.7rem] uppercase tracking-[0.3em] text-neutral-500">Intelligence</div>
+              <div class="space-y-1">
+                <button class="group w-full flex items-center gap-3 rounded-md border border-neutral-700/70 bg-gradient-to-r from-neutral-900/80 to-black/80 px-3 py-2.5 text-xs text-neutral-300 hover:border-lime-400/40 hover:bg-lime-500/5 hover:text-lime-100 transition">
+                  <div class="h-6 w-6 rounded-sm border border-neutral-700 bg-black/40 flex items-center justify-center">
+                    <i data-lucide="cpu" class="h-3.5 w-3.5 text-amber-300/90"></i>
+                  </div>
+                  <div class="flex-1 flex items-center justify-between gap-2">
+                    <span>AI Predictions</span>
+                    <span class="text-[0.65rem] uppercase tracking-[0.3em] text-amber-300/70">Live‑3</span>
+                  </div>
+                </button>
+
+                <button class="group w-full flex items-center gap-3 rounded-md border border-neutral-700/70 bg-gradient-to-r from-neutral-900/80 to-black/80 px-3 py-2.5 text-xs text-neutral-300 hover:border-lime-400/40 hover:bg-lime-500/5 hover:text-lime-100 transition">
+                  <div class="h-6 w-6 rounded-sm border border-neutral-700 bg-black/40 flex items-center justify-center">
+                    <i data-lucide="truck" class="h-3.5 w-3.5 text-cyan-300/90"></i>
+                  </div>
+                  <div class="flex-1 flex items-center justify-between gap-2">
+                    <span>Logistics Routes</span>
+                    <span class="text-[0.65rem] uppercase tracking-[0.3em] text-cyan-300/70">Conv‑5</span>
+                  </div>
+                </button>
+
+                <button class="group w-full flex items-center gap-3 rounded-md border border-neutral-700/70 bg-gradient-to-r from-neutral-900/80 to-black/80 px-3 py-2.5 text-xs text-neutral-300 hover:border-rose-500/50 hover:bg-rose-500/5 hover:text-rose-50 transition">
+                  <div class="relative">
+                    <div class="h-6 w-6 rounded-sm border border-rose-500/80 bg-black/40 flex items-center justify-center">
+                      <i data-lucide="alert-triangle" class="h-3.5 w-3.5 text-rose-400"></i>
+                    </div>
+                    <span class="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-rose-400 shadow-[0_0_10px_rgba(248,113,113,0.8)]"></span>
+                  </div>
+                  <div class="flex-1 flex items-center justify-between gap-2">
+                    <span>Incident Feed</span>
+                    <span class="text-[0.65rem] uppercase tracking-[0.3em] text-rose-300/80">3 Alerts</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- System -->
+            <div class="mt-auto border-t border-neutral-800/80 pt-4">
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-[0.7rem] uppercase tracking-[0.3em] text-neutral-500">System Status</div>
+                <div class="flex items-center gap-1 text-[0.65rem] text-neutral-400">
+                  <span class="h-1.5 w-6 rounded-full bg-gradient-to-r from-emerald-400 to-lime-400 shadow-[0_0_10px_rgba(74,222,128,0.7)]"></span>
+                  <span>OK</span>
+                </div>
+              </div>
+
+              <div class="space-y-2 text-[0.75rem]">
+                <div class="flex items-center justify-between">
+                  <span class="text-neutral-400">Compute Load</span>
+                  <span class="text-lime-300">72%</span>
+                </div>
+                <div class="h-1.5 w-full rounded-full bg-neutral-900 overflow-hidden border border-neutral-700/80">
+                  <div class="h-full w-3/4 bg-gradient-to-r from-lime-500 via-emerald-400 to-amber-300 shadow-[0_0_14px_rgba(132,204,22,0.7)]"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-neutral-400">Link Integrity</span>
+                  <span class="text-cyan-300">Encrypted</span>
+                </div>
+                <div class="flex items-center gap-2 text-[0.7rem] text-neutral-500 pt-1">
+                  <i data-lucide="shield-check" class="h-3.5 w-3.5 text-emerald-300"></i>
+                  <span class="uppercase tracking-[0.24em]">MIL‑GRADE AES‑256 CHANNEL</span>
+                </div>
+              </div>
+
+              <!-- Operator -->
+              <div class="mt-4 flex items-center justify-between gap-3 rounded-md border border-neutral-700/80 bg-gradient-to-r from-neutral-900/90 to-black/90 px-3 py-2.5">
+                <div class="flex items-center gap-2">
+                  <div class="relative">
+                    <div class="h-7 w-7 rounded-sm border border-amber-400/70 bg-gradient-to-br from-amber-500/20 via-black to-amber-700/30 flex items-center justify-center">
+                      <span class="text-xs font-semibold tracking-[0.2em] text-amber-200">CO</span>
+                    </div>
+                    <span class="absolute -bottom-1 right-0 text-[0.55rem] text-amber-300/90 tracking-[0.22em] uppercase">Cmd</span>
+                  </div>
+                  <div class="leading-tight">
+                    <div class="text-xs text-neutral-100 tracking-tight">Col. R. Singh</div>
+                    <div class="text-[0.7rem] text-neutral-500 uppercase tracking-[0.26em]">Ops‑Grid Alpha</div>
+                  </div>
+                </div>
+                <button class="inline-flex items-center gap-1 rounded-sm border border-neutral-600 bg-neutral-900/80 px-2 py-1 text-[0.7rem] uppercase tracking-[0.26em] text-neutral-300 hover:border-lime-400/60 hover:text-lime-100 hover:bg-lime-500/5 transition">
+                  <i data-lucide="lock" class="h-3 w-3"></i>
+                  <span>Lock</span>
+                </button>
+              </div>
+            </div>
+          </nav>
+        </aside>
+
+        <!-- Main Area -->
+        <main class="flex-1 flex flex-col gap-4 lg:gap-5 xl:gap-6 p-4 sm:p-6 lg:p-7 xl:p-8">
+          <!-- Top Bar -->
+          <header class="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between">
+            <div class="space-y-1">
+              <div class="flex items-center gap-3">
+                <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-neutral-50 flex items-center gap-2">
+                  <span class="font-semibold tracking-[0.35em] text-lime-400 text-xs uppercase">Sector Delta‑03</span>
+                </h1>
+              </div>
+              <div class="flex flex-wrap items-center gap-3 text-sm text-neutral-400">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="activity" class="h-3.5 w-3.5 text-lime-300"></i>
+                  <span>Operational Theatre: North‑Western Corridor</span>
+                </div>
+                <span class="hidden sm:inline text-neutral-700">|</span>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="clock" class="h-3.5 w-3.5 text-amber-300"></i>
+                  <span>IST 22:14:37 &bull; ZULU 16:44:37</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+              <!-- Alert Level badge -->
+              <div class="flex items-center gap-2 rounded-md border border-amber-400/60 bg-gradient-to-r from-amber-500/20 via-black to-amber-900/40 px-3 py-2 text-xs">
+                <div class="flex items-center gap-1.5">
+                  <span class="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_10px_rgba(252,211,77,0.9)]"></span>
+                  <span class="uppercase tracking-[0.28em] text-amber-200">Alert‑Level</span>
+                </div>
+                <span class="ml-2 text-xs font-medium tracking-[0.3em] text-amber-100">ALPHA‑2</span>
+              </div>
+
+              <!-- Mode Toggle -->
+              <button class="inline-flex items-center gap-2 rounded-md border border-lime-400/50 bg-black/60 px-3 py-2 text-[0.7rem] uppercase tracking-[0.3em] text-lime-200 hover:bg-lime-500/10 transition">
+                <i data-lucide="scan" class="h-3.5 w-3.5 text-lime-300"></i>
+                <span>Combat Mode</span>
+              </button>
+            </div>
+          </header>
+
+          <!-- Primary Grid -->
+          <section class="grid grid-cols-1 xl:grid-cols-5 gap-4 lg:gap-5 xl:gap-6">
+            <!-- Left Column: Map + Radar -->
+            <div class="xl:col-span-3 space-y-4 lg:space-y-5">
+              <!-- Holographic Map Panel -->
+              <div class="relative rounded-xl border border-lime-500/20 bg-gradient-to-b from-neutral-950/80 via-black/95 to-neutral-950/95 shadow-[0_0_40px_rgba(22,163,74,0.35)] overflow-hidden">
+                <!-- Top bar -->
+                <div class="flex items-center justify-between border-b border-lime-500/20 bg-gradient-to-r from-black via-neutral-950 to-black px-3 sm:px-4 py-2.5">
+                  <div class="flex items-center gap-2">
+                    <div class="flex gap-1">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400/90 shadow-[0_0_10px_rgba(52,211,153,0.9)]"></span>
+                      <span class="h-1.5 w-1.5 rounded-full bg-amber-300/70"></span>
+                      <span class="h-1.5 w-1.5 rounded-full bg-rose-400/70"></span>
+                    </div>
+                    <div class="text-[0.7rem] uppercase tracking-[0.3em] text-lime-200">Ground Theatre — Live</div>
+                  </div>
+                  <div class="flex items-center gap-2 text-[0.65rem] text-neutral-400">
+                    <span class="hidden sm:inline uppercase tracking-[0.26em] text-lime-300/80">Grid‑Resolution: 25m</span>
+                    <button class="inline-flex items-center gap-1 rounded-sm border border-lime-400/40 bg-black/70 px-2 py-1 text-[0.65rem] uppercase tracking-[0.26em] text-lime-200 hover:bg-lime-500/10 transition">
+                      <i data-lucide="maximize-2" class="h-3 w-3"></i>
+                      <span>Expand</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Holographic Map Body -->
+                <div class="relative">
+                  <!-- 3D grid background -->
+                  <div class="relative h-64 sm:h-72 lg:h-80 xl:h-[22rem] overflow-hidden bg-gradient-to-b from-black via-neutral-950 to-black">
+                    <div class="absolute inset-0 opacity-70" style="background-image: radial-gradient(circle at 0 0, rgba(132,204,22,0.3), transparent 55%), radial-gradient(circle at 100% 100%, rgba(56,189,248,0.25), transparent 55%);"></div>
+
+                    <!-- Perspective grid -->
+                    <div class="absolute inset-x-0 bottom-0 h-3/4 origin-bottom transform perspective-[1400px] -rotate-x-12">
+                      <div class="absolute inset-0" style="background-image: linear-gradient(to right, rgba(163,230,53,0.24) 1px, transparent 1px), linear-gradient(to top, rgba(21,128,61,0.45) 1px, transparent 1px); background-size: 2.5rem 2.5rem;"></div>
+                      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    </div>
+
+                    <!-- Topographic lines (3D hologram) -->
+                    <svg class="absolute inset-x-6 inset-y-4 text-lime-400/50">
+                      <defs>
+                        <linearGradient id="topo" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="rgba(190,242,100,0.8)" />
+                          <stop offset="100%" stop-color="rgba(16,185,129,0.1)" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M0 80 Q 80 40, 180 65 T 360 75 T 540 60 T 720 70" stroke="url(#topo)" stroke-width="1" fill="none" />
+                      <path d="M0 110 Q 90 90, 180 115 T 360 120 T 540 100 T 720 105" stroke="url(#topo)" stroke-width="0.8" fill="none" />
+                      <path d="M0 140 Q 60 145, 160 150 T 320 145 T 500 150 T 720 140" stroke="url(#topo)" stroke-width="0.7" fill="none" />
+                    </svg>
+
+                    <!-- Tactical Markers -->
+                    <div class="absolute inset-0">
+                      <!-- Friendly convoy -->
+                      <div class="absolute left-10 bottom-14 flex items-center gap-2">
+                        <div class="h-5 w-5 rounded-sm border border-cyan-300/80 bg-cyan-500/20 shadow-[0_0_14px_rgba(6,182,212,0.7)] flex items-center justify-center">
+                          <i data-lucide="truck" class="h-3 w-3 text-cyan-100"></i>
+                        </div>
+                        <div class="text-[0.65rem] leading-tight">
+                          <div class="uppercase tracking-[0.26em] text-cyan-200">Convoy K‑12</div>
+                          <div class="text-neutral-400">ETA: 18m &bull; Route: LIMA‑3</div>
+                        </div>
+                      </div>
+
+                      <!-- Platoon -->
+                      <div class="absolute left-1/2 top-16 -translate-x-1/2 flex flex-col items-center gap-1">
+                        <div class="h-7 w-7 rounded-sm border border-lime-300/80 bg-lime-500/20 shadow-[0_0_22px_rgba(132,204,22,0.75)] flex items-center justify-center">
+                          <i data-lucide="users" class="h-3.5 w-3.5 text-lime-100"></i>
+                        </div>
+                        <div class="text-[0.65rem] text-center">
+                          <div class="uppercase tracking-[0.26em] text-lime-200">Platoon A‑3</div>
+                          <div class="text-neutral-400">Combat Ready • Cover: 72%</div>
+                        </div>
+                      </div>
+
+                      <!-- Potential threat zone -->
+                      <div class="absolute right-10 top-10">
+                        <div class="relative">
+                          <div class="h-16 w-16 rounded-full border border-amber-400/60 bg-amber-500/10 shadow-[0_0_20px_rgba(245,158,11,0.7)]"></div>
+                          <div class="absolute inset-2 rounded-full border border-amber-300/70 border-dashed"></div>
+                          <div class="absolute inset-5 flex items-center justify-center">
+                            <span class="text-[0.65rem] uppercase tracking-[0.26em] text-amber-200">Risk 0.78</span>
+                          </div>
+                          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[0.65rem] text-neutral-300 text-center">
+                            <div class="uppercase tracking-[0.26em] text-amber-200/90">AI Threat Envelope</div>
+                            <div class="text-neutral-500">Probable mortar launch corridor</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Map Status HUD -->
+                    <div class="absolute left-0 right-0 bottom-0 flex flex-wrap items-center justify-between gap-3 border-t border-lime-500/20 bg-gradient-to-t from-black/95 via-black/90 to-transparent px-3 sm:px-4 py-2.5 text-[0.7rem] text-neutral-300">
+                      <div class="flex flex-wrap items-center gap-3">
+                        <div class="flex items-center gap-1.5">
+                          <span class="h-2 w-2 rounded-full bg-lime-400 shadow-[0_0_10px_rgba(132,204,22,0.8)]"></span>
+                          <span class="uppercase tracking-[0.26em] text-lime-200">Feeds</span>
+                          <span class="text-neutral-400">SAT‑3, UAV‑2, HUMINT‑1</span>
+                        </div>
+                        <div class="hidden sm:flex items-center gap-1.5">
+                          <i data-lucide="radio" class="h-3.5 w-3.5 text-cyan-300"></i>
+                          <span class="uppercase tracking-[0.26em] text-cyan-200">Comms</span>
+                          <span class="text-neutral-400">LOS 98% • Jamming 4%</span>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-1.5">
+                          <span class="text-neutral-500 uppercase tracking-[0.26em]">Zoom</span>
+                          <div class="h-1 w-16 rounded-full bg-neutral-900 overflow-hidden">
+                            <div class="h-full w-3/4 bg-gradient-to-r from-lime-400 to-emerald-500"></div>
+                          </div>
+                        </div>
+                        <button class="hidden sm:inline-flex items-center gap-1 rounded-sm border border-neutral-700 bg-black/70 px-2 py-1 text-[0.65rem] uppercase tracking-[0.26em] text-neutral-300 hover:border-lime-400/60 hover:text-lime-100 hover:bg-lime-500/10 transition">
+                          <i data-lucide="layers" class="h-3 w-3"></i>
+                          <span>Layers</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Radar & Airspace -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Radar Screen -->
+                <div class="relative rounded-xl border border-lime-500/25 bg-gradient-to-b from-black/90 via-neutral-950 to-black shadow-[0_0_30px_rgba(34,197,94,0.4)] overflow-hidden">
+                  <div class="flex items-center justify-between border-b border-lime-500/20 bg-black/80 px-3 py-2">
+                    <div class="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-lime-200">
+                      <i data-lucide="radar" class="h-3.5 w-3.5"></i>
+                      <span>Airspace Radar</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-[0.65rem] text-neutral-400">
+                      <span class="uppercase tracking-[0.26em] text-lime-300/80">Scan: 2.5s</span>
+                    </div>
+                  </div>
+
+                  <div class="relative h-48 bg-gradient-to-b from-neutral-950 to-black">
+                    <!-- Radar grid -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <div class="relative h-40 w-40 sm:h-44 sm:w-44 rounded-full border border-lime-500/40 bg-radial from-lime-500/10 via-black to-black">
+                        <!-- Concentric rings -->
+                        <div class="absolute inset-3 rounded-full border border-lime-500/25"></div>
+                        <div class="absolute inset-6 rounded-full border border-lime-500/15"></div>
+                        <div class="absolute inset-9 rounded-full border border-lime-500/10"></div>
+                        <!-- Crosshair lines -->
+                        <div class="absolute inset-0">
+                          <div class="absolute inset-y-0 left-1/2 w-[1px] bg-lime-500/25"></div>
+                          <div class="absolute inset-x-0 top-1/2 h-[1px] bg-lime-500/25"></div>
+                        </div>
+                        <!-- Sweep arc -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                          <div class="h-32 w-32 rounded-full" style="background: conic-gradient(from 120deg, rgba(190,242,100,0.0), rgba(190,242,100,0.5), rgba(190,242,100,0.0) 60%); filter: blur(0.12rem);"></div>
+                        </div>
+
+                        <!-- Contacts -->
+                        <div class="absolute inset-0">
+                          <div class="absolute left-8 top-10 h-1.5 w-1.5 rounded-full bg-emerald-300 shadow-[0_0_10px_rgba(16,185,129,0.9)]"></div>
+                          <div class="absolute right-7 bottom-10 h-1.5 w-1.5 rounded-full bg-amber-300 shadow-[0_0_10px_rgba(245,158,11,0.9)]"></div>
+                          <div class="absolute left-16 bottom-6 h-1.5 w-1.5 rounded-full bg-emerald-300/80 shadow-[0_0_8px_rgba(16,185,129,0.7)]"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Radar Legend -->
+                    <div class="absolute inset-x-0 bottom-0 border-t border-lime-500/20 bg-gradient-to-t from-black via-black/80 to-transparent px-3 py-2 text-[0.7rem] text-neutral-300">
+                      <div class="flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-2">
+                          <span class="h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
+                          <span class="uppercase tracking-[0.26em] text-emerald-200">Friendly: 3</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <span class="h-1.5 w-1.5 rounded-full bg-amber-300"></span>
+                          <span class="uppercase tracking-[0.26em] text-amber-200">Unknown: 1</span>
+                        </div>
+                        <div class="hidden sm:flex items-center gap-2">
+                          <span class="h-1.5 w-1.5 rounded-full bg-rose-400"></span>
+                          <span class="uppercase tracking-[0.26em] text-rose-200">Hostile: 0</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Logistics Route Panel -->
+                <div class="relative rounded-xl border border-cyan-400/30 bg-gradient-to-b from-neutral-950/80 via-black/95 to-neutral-950/95 shadow-[0_0_30px_rgba(34,211,238,0.45)] overflow-hidden">
+                  <div class="flex items-center justify-between border-b border-cyan-400/30 bg-black/80 px-3 py-2">
+                    <div class="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-cyan-200">
+                      <i data-lucide="route" class="h-3.5 w-3.5"></i>
+                      <span>Logistics Corridor</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-[0.65rem] text-neutral-400">
+                      <i data-lucide="battery-charging" class="h-3 w-3 text-lime-300"></i>
+                      <span>Fuel • Ammo • Med</span>
+                    </div>
+                  </div>
+
+                  <div class="relative h-48 bg-gradient-to-b from-black via-neutral-950 to-black">
+                    <!-- Route schematic -->
+                    <svg class="absolute inset-3 text-cyan-300/70">
+                      <defs>
+                        <linearGradient id="route" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="rgba(56,189,248,0.9)" />
+                          <stop offset="100%" stop-color="rgba(34,197,94,0.9)" />
+                        </linearGradient>
+                      </defs>
+                      <polyline points="15,110 80,80 140,95 190,55 250,70 300,40 360,55 400,25" fill="none" stroke="url(#route)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+                      <circle cx="80" cy="80" r="3" fill="rgb(56,189,248)" />
+                      <circle cx="190" cy="55" r="3" fill="rgb(56,189,248)" />
+                      <circle cx="300" cy="40" r="3" fill="rgb(52,211,153)" />
+                      <circle cx="400" cy="25" r="3" fill="rgb(52,211,153)" />
+                    </svg>
+
+                    <!-- Node tags -->
+                    <div class="absolute left-8 top-16 text-[0.65rem]">
+                      <div class="uppercase tracking-[0.26em] text-cyan-200">Depot D‑2</div>
+                      <div class="text-neutral-400">Dispatch: T‑7m</div>
+                    </div>
+                    <div class="absolute left-1/2 top-10 text-[0.65rem] -translate-x-1/2">
+                      <div class="uppercase tracking-[0.26em] text-cyan-200">Checkpoint C‑9</div>
+                      <div class="text-neutral-400">Risk: 0.34 • Escort: 2</div>
+                    </div>
+                    <div class="absolute right-4 top-6 text-[0.65rem] text-right">
+                      <div class="uppercase tracking-[0.26em] text-emerald-200">FOB ZULU</div>
+                      <div class="text-neutral-400">Supply Ready: 89%</div>
+                    </div>
+
+                    <!-- Route metrics -->
+                    <div class="absolute inset-x-0 bottom-0 border-t border-cyan-400/30 bg-gradient-to-t from-black/95 via-black/80 to-transparent px-3 py-2 text-[0.7rem] text-neutral-300">
+                      <div class="flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-2">
+                          <span class="text-neutral-500 uppercase tracking-[0.26em]">Total Distance</span>
+                          <span class="text-cyan-200">186 km</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <span class="text-neutral-500 uppercase tracking-[0.26em]">Convoys</span>
+                          <span class="text-cyan-200">5 Active</span>
+                        </div>
+                      </div>
+                      <div class="mt-1.5 flex items-center gap-2">
+                        <span class="text-neutral-500 uppercase tracking-[0.26em]">AI Route Risk</span>
+                        <div class="h-1.5 flex-1 rounded-full bg-neutral-900 overflow-hidden">
+                          <div class="h-full w-1/3 bg-gradient-to-r from-emerald-400 via-amber-300 to-rose-400"></div>
+                        </div>
+                        <span class="text-amber-200 text-[0.7rem]">0.41</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Metrics & AI -->
+            <div class="xl:col-span-2 space-y-4 lg:space-y-5">
+              <!-- AI Prediction Cards -->
+              <div class="relative rounded-xl border border-lime-500/25 bg-gradient-to-b from-neutral-950 via-black to-neutral-950 shadow-[0_0_32px_rgba(34,197,94,0.4)] overflow-hidden">
+                <div class="flex items-center justify-between border-b border-lime-500/25 bg-black/80 px-3 py-2.5">
+                  <div class="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-lime-200">
+                    <i data-lucide="cpu" class="h-3.5 w-3.5"></i>
+                    <span>AI Predictions</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-[0.65rem] text-neutral-400">
+                    <span class="uppercase tracking-[0.26em] text-lime-300/80">Model: VAYU‑X9</span>
+                    <span class="hidden sm:inline text-neutral-700">|</span>
+                    <span class="uppercase tracking-[0.26em] text-emerald-200">Latency: 43 ms</span>
+                  </div>
+                </div>
+
+                <div class="p-3 sm:p-4 space-y-3 sm:space-y-4">
+                  <!-- Risk card -->
+                  <div class="relative rounded-lg border border-amber-500/40 bg-gradient-to-r from-amber-500/15 via-black to-amber-900/30 overflow-hidden">
+                    <div class="absolute inset-y-0 right-10 w-24 opacity-50" style="background: radial-gradient(circle at 70% 50%, rgba(251,191,36,0.4), transparent 55%);"></div>
+                    <div class="flex flex-col gap-1.5 p-3">
+                      <div class="flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-2">
+                          <i data-lucide="alert-triangle" class="h-3.5 w-3.5 text-amber-300"></i>
+                          <div>
+                            <div class="text-xs uppercase tracking-[0.3em] text-amber-200">Ambush Probability</div>
+                            <div class="text-sm text-neutral-300">Route LIMA‑3 &bull; 0–90 min window</div>
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <div class="text-xl font-semibold tracking-tight text-amber-200">0.78</div>
+                          <div class="text-[0.65rem] uppercase tracking-[0.26em] text-neutral-400">High Risk</div>
+                        </div>
+                      </div>
+
+                      <div class="mt-2 flex items-center gap-3">
+                        <div class="flex-1">
+                          <div class="h-1.5 w-full rounded-full bg-neutral-900 overflow-hidden">
+                            <div class="h-full w-4/5 bg-gradient-to-r from-amber-300 via-orange-500 to-rose-500 shadow-[0_0_14px_rgba(248,113,113,0.8)]"></div>
+                          </div>
+                          <div class="mt-1 flex justify-between text-[0.65rem] text-neutral-500">
+                            <span class="uppercase tracking-[0.24em]">Confidence: 91%</span>
+                            <span>Last update: 6s</span>
+                          </div>
+                        </div>
+                        <button class="inline-flex items-center gap-1 rounded-sm border border-amber-400/70 bg-black/70 px-2 py-1 text-[0.65rem] uppercase tracking-[0.26em] text-amber-100 hover:bg-amber-500/15 transition">
+                          <i data-lucide="shield-off" class="h-3 w-3"></i>
+                          <span>Reroute</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Supply integrity card -->
+                  <div class="relative rounded-lg border border-emerald-400/40 bg-gradient-to-r from-emerald-500/15 via-black to-emerald-900/25 overflow-hidden">
+                    <div class="flex flex-col gap-1.5 p-3">
+                      <div class="flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-2">
+                          <i data-lucide="boxes" class="h-3.5 w-3.5 text-emerald-300"></i>
+                          <div>
+                            <div class="text-xs uppercase tracking-[0.3em] text-emerald-200">Supply Integrity</div>
+                            <div class="text-sm text-neutral-300">FOB ZULU &bull; Next 24 hours</div>
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <div class="text-xl font-semibold tracking-tight text-emerald-200">89%</div>
+                          <div class="text-[0.65rem] uppercase tracking-[0.26em] text-neutral-400">Stable</div>
+                        </div>
+                      </div>
+
+                      <div class="mt-2 grid grid-cols-3 gap-2 text-[0.7rem] text-neutral-300">
+                        <div>
+                          <div class="uppercase tracking-[0.26em] text-neutral-500 mb-1">Ammo</div>
+                          <div class="flex items-center justify-between">
+                            <span>76%</span>
+                            <span class="h-1 w-10 rounded-full bg-neutral-900 overflow-hidden">
+                              <span class="block h-full w-3/4 bg-gradient-to-r from-amber-300 to-emerald-400"></span>
+                            </span>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="uppercase tracking-[0.26em] text-neutral-500 mb-1">Fuel</div>
+                          <div class="flex items-center justify-between">
+                            <span>82%</span>
+                            <span class="h-1 w-10 rounded-full bg-neutral-900 overflow-hidden">
+                              <span class="block h-full w-4/5 bg-gradient-to-r from-emerald-300 to-lime-400"></span>
+                            </span>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="uppercase tracking-[0.26em] text-neutral-500 mb-1">Med</div>
+                          <div class="flex items-center justify-between">
+                            <span>93%</span>
+                            <span class="h-1 w-10 rounded-full bg-neutral-900 overflow-hidden">
+                              <span class="block h-full w-[90%] bg-gradient-to-r from-cyan-300 to-emerald-400"></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Morale / Readiness meter -->
+                  <div class="relative rounded-lg border border-lime-400/40 bg-gradient-to-r from-lime-500/15 via-black to-lime-900/25 overflow-hidden">
+                    <div class="flex flex-col gap-1.5 p-3">
+                      <div class="flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-2">
+                          <i data-lucide="shield" class="h-3.5 w-3.5 text-lime-300"></i>
+                          <div>
+                            <div class="text-xs uppercase tracking-[0.3em] text-lime-200">Force Readiness</div>
+                            <div class="text-sm text-neutral-300">Sector Delta‑03 • 3 Companies</div>
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <div class="text-xl font-semibold tracking-tight text-lime-200">0.91</div>
+                          <div class="text-[0.65rem] uppercase tracking-[0.26em] text-neutral-400">Combat Index</div>
+                        </div>
+                      </div>
+
+                      <div class="mt-2 flex items-center gap-3">
+                        <div class="relative h-14 w-24 rounded-md border border-lime-400/50 bg-black/70 flex items-center justify-center overflow-hidden">
+                          <div class="absolute inset-x-2 bottom-2 h-1 rounded-full bg-neutral-900">
+                            <div class="h-full w-11/12 bg-gradient-to-r from-amber-300 via-lime-400 to-emerald-400 shadow-[0_0_10px_rgba(132,204,22,0.8)]"></div>
+                          </div>
+                          <div class="absolute inset-x-4 bottom-4 h-7 rounded-full border border-lime-400/50 bg-gradient-to-t from-black to-lime-500/20"></div>
+                          <div class="absolute bottom-4 text-[0.65rem] uppercase tracking-[0.26em] text-lime-100">91%</div>
+                        </div>
+                        <div class="flex-1 grid grid-cols-2 gap-2 text-[0.7rem] text-neutral-300">
+                          <div>
+                            <div class="uppercase tracking-[0.26em] text-neutral-500 mb-1">Fatigue</div>
+                            <div class="flex items-center justify-between">
+                              <span>Low</span>
+                              <span class="text-lime-300">0.18</span>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="uppercase tracking-[0.26em] text-neutral-500 mb-1">Comms Loss</div>
+                            <div class="flex items-center justify-between">
+                              <span>2.1%</span>
+                              <span class="text-amber-300">Watch</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scores & Switches Row -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Threat Score Meter -->
+                <div class="relative rounded-xl border border-rose-500/30 bg-gradient-to-b from-black via-neutral-950 to-black overflow-hidden shadow-[0_0_26px_rgba(248,113,113,0.4)]">
+                  <div class="flex items-center justify-between border-b border-rose-500/30 bg-black/80 px-3 py-2">
+                    <div class="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-rose-200">
+                      <i data-lucide="target" class="h-3.5 w-3.5"></i>
+                      <span>Theatre Threat Index</span>
+                    </div>
+                    <span class="text-[0.65rem] uppercase tracking-[0.26em] text-neutral-400">Window: 6 hr</span>
+                  </div>
+                  <div class="p-3 flex items-center gap-3">
+                    <div class="relative h-20 w-20 rounded-full border border-rose-400/60 bg-gradient-to-br from-rose-500/10 via-black to-amber-900/30 flex items-center justify-center">
+                      <div class="absolute inset-2 rounded-full border border-neutral-800/80"></div>
+                      <div class="absolute inset-3 rounded-full border border-rose-400/40 border-dashed"></div>
+                      <div class="absolute inset-4 flex items-center justify-center">
+                        <span class="text-lg font-semibold tracking-tight text-rose-200">0.64</span>
+                      </div>
+                      <svg class="absolute inset-1.5 -rotate-90">
+                        <circle cx="36" cy="36" r="30" stroke="rgba(55,65,81,0.8)" stroke-width="3" fill="transparent"></circle>
+                        <circle cx="36" cy="36" r="30" stroke="url(#threatGradient)" stroke-width="3" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="68"></circle>
+                        <defs>
+                          <linearGradient id="threatGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="rgb(250,204,21)" />
+                            <stop offset="50%" stop-color="rgb(248,113,113)" />
+                            <stop offset="100%" stop-color="rgb(220,38,38)" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div class="flex-1 space-y-1 text-[0.75rem] text-neutral-300">
+                      <div class="flex items-center justify-between">
+                        <span class="uppercase tracking-[0.26em] text-neutral-500">Border Sector</span>
+                        <span class="text-amber-200">Medium‑High</span>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="uppercase tracking-[0.26em] text-neutral-500">Signals Intel</span>
+                        <span class="text-rose-200">Spike: 27%</span>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="uppercase tracking-[0.26em] text-neutral-500">Movement</span>
+                        <span class="text-neutral-300">+13 tracks</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tactical Switches (Buttons as equipment toggles) -->
+                <div class="relative rounded-xl border border-neutral-700/80 bg-gradient-to-b from-neutral-950 via-black to-neutral-950 overflow-hidden">
+                  <div class="flex items-center justify-between border-b border-neutral-700/80 bg-black/80 px-3 py-2">
+                    <div class="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-neutral-200">
+                      <i data-lucide="settings-2" class="h-3.5 w-3.5 text-neutral-300"></i>
+                      <span>Tactical Controls</span>
+                    </div>
+                    <span class="text-[0.65rem] uppercase tracking-[0.26em] text-neutral-500">Override: Off</span>
+                  </div>
+
+                  <div class="p-3 space-y-3">
+                    <!-- Switch: Night Vision -->
+                    <div class="flex items-center justify-between gap-3">
+                      <div>
+                        <div class="text-[0.75rem] text-neutral-200 uppercase tracking-[0.26em]">Night‑Vision Overlay</div>
+                        <div class="text-sm text-neutral-500">Enhances low‑light grid and threat signatures</div>
+                      </div>
+                      <button class="relative inline-flex h-7 w-16 items-center rounded-full border border-lime-500/60 bg-gradient-to-r from-lime-500/30 to-emerald-600/40 shadow-[0_0_18px_rgba(22,163,74,0.8)]">
+                        <span class="absolute inset-0 rounded-full bg-gradient-to-r from-lime-500/30 to-emerald-500/15"></span>
+                        <span class="relative ml-7 h-5 w-5 rounded-full border border-lime-300/80 bg-neutral-950 shadow-[0_0_12px_rgba(190,242,100,0.9)]"></span>
+                      </button>
+                    </div>
+
+                    <!-- Switch: Autonomous Defence -->
+                    <div class="flex items-center justify-between gap-3">
+                      <div>
+                        <div class="text-[0.75rem] text-neutral-200 uppercase tracking-[0.26em]">Autonomous Defence</div>
+                        <div class="text-sm text-neutral-500">AI‑assisted counter‑battery recommendations</div>
+                      </div>
+                      <button class="relative inline-flex h-7 w-16 items-center rounded-full border border-amber-500/70 bg-gradient-to-r from-black to-amber-900/40">
+                        <span class="absolute inset-0 rounded-full bg-gradient-to-r from-black to-amber-900/30"></span>
+                        <span class="relative ml-1 h-5 w-5 rounded-full border border-amber-300/80 bg-neutral-950 shadow-[0_0_12px_rgba(252,211,77,0.7)]"></span>
+                      </button>
+                    </div>
+
+                    <!-- Switch: Silent Mode -->
+                    <div class="flex items-center justify-between gap-3">
+                      <div>
+                        <div class="text-[0.75rem] text-neutral-200 uppercase tracking-[0.26em]">Silent Comms</div>
+                        <div class="text-sm text-neutral-500">Mute audible alerts, visual cues only</div>
+                      </div>
+                      <button class="relative inline-flex h-7 w-16 items-center rounded-full border border-neutral-600 bg-gradient-to-r from-black to-neutral-800">
+                        <span class="absolute inset-0 rounded-full bg-gradient-to-r from-neutral-900 to-black"></span>
+                        <span class="relative ml-1 h-5 w-5 rounded-full border border-neutral-500 bg-neutral-950"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event Log -->
+              <div class="relative rounded-xl border border-neutral-700/80 bg-gradient-to-b from-black via-neutral-950 to-black overflow-hidden">
+                <div class="flex items-center justify-between border-b border-neutral-700/80 bg-black/80 px-3 py-2">
+                  <div class="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-neutral-200">
+                    <i data-lucide="list-tree" class="h-3.5 w-3.5 text-neutral-300"></i>
+                    <span>Event Stream</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-[0.65rem] text-neutral-400">
+                    <span class="uppercase tracking-[0.26em] text-lime-300/80">Realtime</span>
+                    <span class="h-1 w-6 rounded-full bg-gradient-to-r from-emerald-400 to-lime-300"></span>
+                  </div>
+                </div>
+
+                <div class="max-h-40 overflow-y-auto divide-y divide-neutral-800 text-[0.75rem]">
+                  <div class="flex items-start gap-3 px-3 py-2">
+                    <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                    <div class="flex-1">
+                      <div class="flex items-center justify-between">
+                        <span class="text-neutral-200">New UAV feed attached to Sector Delta‑03.</span>
+                        <span class="text-[0.65rem] text-neutral-500">T‑00:12</span>
+                      </div>
+                      <div class="text-neutral-500 mt-0.5">Source: UAV‑BHAWANI‑2 &bull; Alt: 3.4k m</div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3 px-3 py-2">
+                    <span class="mt-1 h-1.5 w-1.5 rounded-full bg-amber-300"></span>
+                    <div class="flex-1">
+                      <div class="flex items-center justify-between">
+                        <span class="text-neutral-200">Comms latency spike detected on Convoy K‑12.</span>
+                        <span class="text-[0.65rem] text-neutral-500">T‑01:26</span>
+                      </div>
+                      <div class="text-neutral-500 mt-0.5">Avg RTT: 280 ms &bull; Packet loss: 3.8%</div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3 px-3 py-2">
+                    <span class="mt-1 h-1.5 w-1.5 rounded-full bg-rose-400"></span>
+                    <div class="flex-1">
+                      <div class="flex items-center justify-between">
+                        <span class="text-neutral-200">HUMINT report flagged as corroborating AI threat corridor.</span>
+                        <span class="text-[0.65rem] text-neutral-500">T‑03:08</span>
+                      </div>
+                      <div class="text-neutral-500 mt-0.5">Source: Patrol UNIT‑GORKHA‑7 • Confidence: 88%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+      });
+    </script>
+  </body>
+</html>
